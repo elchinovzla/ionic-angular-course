@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/recipes"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{recipe?.title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button id="delete-recipe"
+        ><ion-icon name="trash" slot="icon-only"></ion-icon
+      ></ion-button>
+      <ion-alert
+        trigger="delete-recipe"
+        header="Are you sure?"
+        message="Do you really want to delete the recipe?"
+        [buttons]="alertButtons"
+      ></ion-alert>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="recipe?.imageUrl"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <h3>{{recipe?.title}}</h3>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-list-header>Ingredients</ion-list-header>
+          <ion-item *ngFor="let ingredient of recipe?.ingredients">
+            {{ingredient}}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
