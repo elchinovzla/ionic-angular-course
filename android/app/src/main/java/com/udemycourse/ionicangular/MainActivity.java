@@ -1,4 +1,4 @@
-package com.example.app;
+package com.udemycourse.ionicangular;
 
 import com.getcapacitor.BridgeActivity;
 
